@@ -11,6 +11,7 @@
 </head>
 
 <body class="container" style="background-color: rgb(88, 174, 196);">
+
 <header>
 
   <div class="container-fluid" style="display: flex; align-items: center; justify-content: space-between; margin-top: 50px;">
@@ -31,6 +32,54 @@
   <br>
   <br>
   <br>
+
+  <script type="text/javascript">
+
+  sCount=00;
+  mCount=00;
+  tCount=null;
+  
+  function startCount(){
+  document.getElementById("yCount").innerHTML=mCount +":"+ sCount;
+  if (sCount <= 60){
+  sCount++;
+  sCount=checkCero(sCount);
+  }
+  if (sCount >= 60){
+  mCount++;
+  sCount="0"+"0";
+  mCount=checkCero(mCount);
+  }
+  tCount=setTimeout("startCount()",1000);
+  }
+  
+  
+  
+  function checkCero(i){
+  if (i<10){i="0"+i}
+  return i;
+  }
+  
+  </script>
+  <style type="text/css">  
+  
+  fieldset {display:inline;width:140px;height:140px;font-family:sans-serif;text-align:center;color:#000000}
+  input {background:#FFFFFF;border:1px solid #000000; border-radius: 3px;}
+  
+  </style>
+
+  <div style="margin-left: 475px;">
+  <fieldset>
+  <legend id="nCount"></legend>
+  <div id="yCount" style="font-size:40px">00:00</div>
+  <br><br>
+  <input type="button" value="Empezar" onClick="clearTimeout(tCount); startCount()">
+  <input type="button" value="Parar" onClick="clearTimeout(tCount)">
+  </fieldset>
+<br>
+<br>
+<br>
+</div>
   <div class="card" style="width: 40rem; padding: 20px; margin-left: 230px;">
     <h3 class="title" type="text" style="text-align: justify; width: 33rem; padding: 10px;  ">Por favor, completa el siguiente formulario si deseas comunicarte con el Servicio de Emergencias (112):</h3>
     <br>
