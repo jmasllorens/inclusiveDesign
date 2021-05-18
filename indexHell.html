@@ -28,9 +28,17 @@
       sCount=00;
       mCount=00;
       tCount=null;
-      
+      playing = false;
+
+      function playAudio() {
+        const audio = new Audio('audioInvitan.mp4');
+        audio.play();
+      }
       function startCount(){
-        
+        if(!playing) {
+          playing = true;
+          playAudio()
+        }
       document.getElementById("yCount").innerHTML=mCount +":"+ sCount;
       if (sCount <= 60){
       sCount++;
